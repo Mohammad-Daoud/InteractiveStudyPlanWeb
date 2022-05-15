@@ -11,13 +11,9 @@ import java.util.Map;
 
 @Service
 public class ViewStudyPlanService {
-    private final ResponseHandler<Course> COURSE_RESPONSE = new ResponseHandler<>();
+    private final ResponseHandler<Course> COURSE_RESPONSE = new ResponseHandler<>("http://localhost:8000/read/");
 
-    public List<Course> retrievePlan(Plan plan){
-        Map<String,Object> map = new HashMap<>();
-        map.put("schoolName",plan.getSchoolName());
-        map.put("departmentName",plan.getDepartmentName());
-        map.put("year",plan.getYear());
-        return COURSE_RESPONSE.postResponse(map,"get-plan");
+    public Boolean uploadPlan(){
+        return true;
     }
 }

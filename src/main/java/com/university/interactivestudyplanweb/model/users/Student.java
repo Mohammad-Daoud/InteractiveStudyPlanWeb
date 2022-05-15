@@ -117,18 +117,16 @@ public class Student extends Administrator {
 
     @Override
     public String toString() {
-        return "Instructor{" +
-                "studentID=" + studentID +
+        return "Student{" +
                 "fname='" + getFname() + '\'' +
                 ", lname='" + getLname() + '\'' +
                 ", username='" + getUsername() + '\'' +
                 ", password='" + getPassword() + '\'' +
+                ", userType=" + getType() +
+                ", studentID=" + studentID +
                 ", schoolName='" + schoolName + '\'' +
                 ", depName='" + depName + '\'' +
-                ", userType=" + getUserType() +
-                ", planYear=" + planYear+
+                ", planYear=" + planYear +
                 '}';
     }
-
-
 }

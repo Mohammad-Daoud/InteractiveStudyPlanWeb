@@ -6,108 +6,161 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V17</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Design by foolishdeveloper.com -->
+    <title>Glassmorphism login Form Tutorial in html css</title>
 
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+        *,
+        *:before,
+        *:after{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #00A650;
+        }
+        .background{
+            width: 430px;
+            height: 520px;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top: 50%;
+        }
+        .background .shape{
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            border-radius: 50%;
+        }
+        .shape:first-child{
+            background: linear-gradient(
+                    #382929,
+                    #231F20
+            );
+            left: -80px;
+            top: -80px;
+        }
+        .shape:last-child{
+            right: -30px;
+            background: linear-gradient(
+                    to right,
+                    #FF0000,
+                    #ED1C24
 
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+            );
+            bottom: -80px;
+        }
+        form{
+            height: 520px;
+            width: 400px;
+            background-color: rgba(255,255,255,0.13);
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.1);
+            box: 0 0 40px rgba(8,7,16,0.6);
+            padding: 50px 35px;
+        }
+        form *{
+            font-family: 'Poppins',sans-serif;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+        form h3{
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 42px;
+            text-align: center;
+        }
 
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        label{
+            display: block;
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        input{
+            display: block;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255,255,255,0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        ::placeholder{
+            color: #e5e5e5;
+        }
+        button{
+            margin-top: 50px;
+            width: 100%;
+            background-color: #ffffff;
+            color: #080710;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .social{
+            margin-top: 30px;
+            display: flex;
+        }
+        .social div{
+            background: red;
+            width: 150px;
+            border-radius: 3px;
+            padding: 5px 10px 10px 5px;
+            background-color: rgba(255,255,255,0.27);
+            color: #eaf0fb;
+            text-align: center;
+        }
+        .social div:hover{
+            background-color: rgba(255,255,255,0.47);
+        }
+        .social .fb{
+            margin-left: 25px;
+        }
+        .social i{
+            margin-right: 4px;
+        }
 
-    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-
-    <meta name="robots" content="noindex, follow">
-    <script nonce="8518d0cf-148d-4636-a1cc-52e9abcfb7ab">(function(w,d){!function(a,e,t,r){a.zarazData=a.zarazData||{},a.zarazData.executed=[],a.zaraz={deferred:[]},a.zaraz.q=[],a.zaraz._f=function(e){return function(){var t=Array.prototype.slice.call(arguments);a.zaraz.q.push({m:e,a:t})}};for(const e of["track","set","ecommerce","debug"])a.zaraz[e]=a.zaraz._f(e);a.addEventListener("DOMContentLoaded",(()=>{var t=e.getElementsByTagName(r)[0],z=e.createElement(r),n=e.getElementsByTagName("title")[0];for(n&&(a.zarazData.t=e.getElementsByTagName("title")[0].text),a.zarazData.x=Math.random(),a.zarazData.w=a.screen.width,a.zarazData.h=a.screen.height,a.zarazData.j=a.innerHeight,a.zarazData.e=a.innerWidth,a.zarazData.l=a.location.href,a.zarazData.r=e.referrer,a.zarazData.k=a.screen.colorDepth,a.zarazData.n=e.characterSet,a.zarazData.o=(new Date).getTimezoneOffset(),a.zarazData.q=[];a.zaraz.q.length;){const e=a.zaraz.q.shift();a.zarazData.q.push(e)}z.defer=!0;for(const e of[localStorage,sessionStorage])Object.keys(e).filter((a=>a.startsWith("_zaraz_"))).forEach((t=>a.zarazData["z_"+t.slice(7)]=JSON.parse(e.getItem(t))));z.referrerPolicy="origin",z.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(a.zarazData))),t.parentNode.insertBefore(z,t)}))}(w,d,0,"script");})(window,document);</script></head>
+    </style>
+</head>
 <body>
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <form class="login100-form validate-form">
-<span class="login100-form-title p-b-34">
-Account Login
-</span>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-                    <input id="first-name" class="input100" type="text" name="username" placeholder="User name">
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-                    <input class="input100" type="password" name="pass" placeholder="Password">
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
-                        Sign in
-                    </button>
-                </div>
-                <div class="w-full text-center p-t-27 p-b-239">
-<span class="txt1">
-Forgot
-</span>
-                    <a href="#" class="txt2">
-                        User name / password?
-                    </a>
-                </div>
-                <div class="w-full text-center">
-                    <a href="#" class="txt3">
-                        Sign Up
-                    </a>
-                </div>
-            </form>
-            <div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
-        </div>
-    </div>
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
 </div>
-<div id="dropDownSelect1"></div>
+<form action="/login" method="POST">
+    <h3>Login</h3>
 
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <label for="username">Username</label>
+    <input name ="username" type="text" placeholder="Username" id="username">
 
-<script src="vendor/animsition/js/animsition.min.js"></script>
+    <label for="password">Password</label>
+    <input name = "password" type="password" placeholder="Password" id="password">
 
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <button>Log In</button>
+    <br>
+    <p>${errorMessage}</p>
 
-<script src="vendor/select2/select2.min.js"></script>
-<script>
-    $(".selection-2").select2({
-        minimumResultsForSearch: 20,
-        dropdownParent: $('#dropDownSelect1')
-    });
-</script>
-
-<script src="vendor/daterangepicker/moment.min.js"></script>
-<script src="vendor/daterangepicker/daterangepicker.js"></script>
-
-<script src="vendor/countdowntime/countdowntime.js"></script>
-
-<script src="js/main.js"></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-23581568-13');
-</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"70b542183cae9262","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}' crossorigin="anonymous"></script>
+</form>
 </body>
 </html>

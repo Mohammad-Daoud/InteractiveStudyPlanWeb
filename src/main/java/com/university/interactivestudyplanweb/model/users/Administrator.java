@@ -1,6 +1,10 @@
 package com.university.interactivestudyplanweb.model.users;
 
-public class Administrator {
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Administrator implements Type{
     private String fname;
     private String lname;
     private String username;
@@ -87,7 +91,7 @@ public class Administrator {
         this.password = password;
     }
 
-    public UserType getUserType() {
+    public UserType getType() {
         return userType;
     }
 

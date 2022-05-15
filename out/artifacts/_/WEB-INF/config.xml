@@ -11,6 +11,9 @@
         <property name="prefix">
             <value>/WEB-INF/views/</value>
         </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
     </bean>
 
     <mvc:annotation-driven />

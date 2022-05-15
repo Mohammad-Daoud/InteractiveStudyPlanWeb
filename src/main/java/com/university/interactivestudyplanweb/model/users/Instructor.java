@@ -110,7 +110,7 @@ public class Instructor extends Administrator {
                 ", password='" + getPassword() + '\'' +
                 ", schoolName='" + schoolName + '\'' +
                 ", depName='" + depName + '\'' +
-                ", userType=" + getUserType() +
+                ", userType=" + getType() +
                 '}';
     }
 }

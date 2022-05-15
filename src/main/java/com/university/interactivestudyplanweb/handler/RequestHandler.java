@@ -9,16 +9,17 @@ import org.springframework.web.method.support.InvocableHandlerMethod;
 import java.util.List;
 import java.util.Map;
 
-public class RequestHandler  {
+class RequestHandler  {
 
-    private static final String BASE_URI = "http://localhost:8000/read/";
+    private final String BASE_URI ;
     private final RestTemplate REST_REQUEST;
 
-    private RequestHandler(){
+    private RequestHandler(String baseURI){
+        this.BASE_URI = baseURI;
         REST_REQUEST = new RestTemplate();
     }
-    public static RequestHandler create(){
-        return new RequestHandler();
+    public static RequestHandler create(String baseURI){
+        return new RequestHandler(baseURI);
     }
 
 
@@ -29,10 +30,12 @@ public class RequestHandler  {
     public Object doPostRequest(Map<String,Object> postBody, String urlMethod){
          return REST_REQUEST.postForEntity(BASE_URI + urlMethod,postBody,Object.class).getBody();
     }
+    public void voidDoPostRequest(Map<String,Object> postBody, String urlMethod){
+        REST_REQUEST.postForEntity(BASE_URI + urlMethod,postBody,Object.class);
+    }
 
     public void doDeleteRequest(String urlMethod){
         REST_REQUEST.delete(BASE_URI+urlMethod);
     }
-
 
 }
