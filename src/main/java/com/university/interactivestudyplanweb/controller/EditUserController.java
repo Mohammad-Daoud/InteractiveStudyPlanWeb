@@ -1,5 +1,6 @@
 package com.university.interactivestudyplanweb.controller;
 
+import com.university.interactivestudyplanweb.model.users.UserType;
 import com.university.interactivestudyplanweb.services.EditUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,7 @@ public class EditUserController {
         adminObject.put("lastName",lastName);
         adminObject.put("username",username);
         adminObject.put("password",password);
+        adminObject.put("userType", UserType.ADMIN);
         service.addAdmin(adminObject);
         return "/admin-search";
     }

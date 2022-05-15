@@ -20,7 +20,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="nav-link" href="/edit-user">Edit Users</a>
+                        <p class="nav-link">Edit Users</p>
                         <div class="dropdown-content">
                             <a href="/add-admin">add admin</a>
                             <a href="/add-instructor">add instructor</a>
