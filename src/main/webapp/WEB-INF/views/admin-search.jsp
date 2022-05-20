@@ -11,7 +11,7 @@
 <%@include file="common/formStyle.jsp" %>
 <html>
 <head>
-    <title>Admin Search</title>
+    <title>Admin Page</title>
 </head>
 <body>
 <div class="search">

@@ -8,336 +8,290 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="common/navigation.jsp"%>
 <%@include file="common/styleJsp.jsp"%>
-
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Admin File Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Admin Page</title>
     <style>
-        html {
-            box-sizing: border-box;
-            font-size: 62.5%;
-        }
-
         * {
-            padding: 0;
-            margin: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            box-sizing: inherit;
-        }
-        *::after, *::before {
-            box-sizing: inherit;
-        }
-
-        .timer-bar-wrapper, .drop-zone [class^=success-], .drop-zone {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: #24a35a;
-        }
-
-        p {
-            font-weight: 600;
-            font-family: "Titillium Web", Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            color: #ecf0f1;
-        }
-        @media screen and (max-width: 599px) {
-            p {
-                font-size: 20px;
-                font-size: 2rem;
-            }
-        }
-        @media screen and (min-width: 600px) {
-            p {
-                font-size: 24px;
-                font-size: 2.4rem;
-            }
-        }
-        @media screen and (min-width: 990px) {
-            p {
-                font-size: 27px;
-                font-size: 2.7rem;
-            }
-        }
-        @media screen and (min-width: 1200px) {
-            p {
-                font-size: 30px;
-                font-size: 3rem;
-            }
-        }
-
-        .drop-zone {
-            transition: height 0.25s, background-color 0.6s, border 0.25s;
-            border: 3px dashed #ecf0f1;
-            border-radius: 10px;
-            background-color: transparent;
-            width: 80%;
-            height: 200px;
-        }
-        @media screen and (max-width: 599px) {
-            .drop-zone {
-                max-width: 200px;
-                max-height: 200px;
-            }
-        }
-        @media screen and (min-width: 600px) {
-            .drop-zone {
-                max-width: 260px;
-                max-height: 260px;
-            }
-        }
-        @media screen and (min-width: 990px) {
-            .drop-zone {
-                max-width: 320px;
-                max-height: 320px;
-            }
-        }
-        @media screen and (min-width: 1200px) {
-            .drop-zone {
-                max-width: 480px;
-                max-height: 480px;
-            }
-        }
-        .drop-zone p {
-            text-align: center;
-        }
-        .drop-zone p.timer-info {
-            margin-top: 12px;
-        }
-        .drop-zone [class^=success-] {
-            opacity: 0;
-            color: #24a35a;
-        }
-
-        .timer-bar-wrapper {
-            border-radius: 4px;
-            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-            width: 80%;
-            height: 10px;
-            background-color: #555;
-        }
-        .timer-bar-wrapper .timer-bar,
-        .timer-bar-wrapper .timer-info {
-            position: absolute;
-            left: 0;
-        }
-        .timer-bar-wrapper .timer-bar {
-            top: 0;
-            width: 0;
-            height: inherit;
-            background-color: #ecf0f1;
-            border-radius: inherit;
-        }
-        .timer-bar-wrapper .timer-info {
+            margin: 0;
+            padding: 0;
             font-weight: 400;
-            margin-left: -15px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.58;
+            color: #333;
+            background-color: #02d166;
         }
-        .timer-bar-wrapper .wrapper {
-            overflow: hidden;
+
+        body:before {
+            height: 50%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #02d166;
+            content: "";
+            z-index: 0;
         }
-        .timer-bar-wrapper .wrapper .success-text {
-            font-weight: 600;
+
+        .clearfix:after {
+            display: block;
+            content: "";
+            clear: both;
         }
-        @media screen and (max-width: 599px) {
-            .timer-bar-wrapper .wrapper .success-icon {
-                font-size: 180px;
-                font-size: 18rem;
-            }
-            .timer-bar-wrapper .wrapper .success-text {
-                display: none !important;
-            }
+
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
-        @media screen and (min-width: 600px) {
-            .timer-bar-wrapper .wrapper .success-icon {
-                top: calc(50% - 20px);
-                font-size: 180px;
-                font-size: 18rem;
-            }
-            .timer-bar-wrapper .wrapper .success-text {
-                top: calc(50% + 25px);
-                font-size: 22px;
-                font-size: 2.2rem;
-            }
+
+        h1 {
+            font-size: 1.7em;
         }
-        @media screen and (min-width: 990px) {
-            .timer-bar-wrapper .wrapper .success-icon {
-                top: calc(50% - 25px);
-                font-size: 240px;
-                font-size: 24rem;
-            }
-            .timer-bar-wrapper .wrapper .success-text {
-                top: calc(50% + 28px);
-                font-size: 28px;
-                font-size: 2.8rem;
-            }
+
+        a {
+            color: green;
         }
-        @media screen and (min-width: 1200px) {
-            .timer-bar-wrapper .wrapper .success-icon {
-                top: calc(50% - 38px);
-                font-size: 300px;
-                font-size: 30rem;
+
+        button {
+            box-shadow: none;
+            border: 5px solid transparent;
+            font-size: 14px;
+            outline: none;
+            line-height: 100%;
+            white-space: nowrap;
+            vertical-align: middle;
+            padding: 0.6rem 1rem;
+            border-radius: 2px;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            min-height: 38px;
+        }
+
+        button.primary {
+            background-color: #00A650;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+            color: #fff;
+        }
+
+        input {
+            font-size: 1rem;
+        }
+
+        input[type="file"] {
+            border: 1px solid #02d166;
+            padding: 6px;
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .file-input {
+            width: 100%;
+        }
+
+        .submit-btn {
+            display: block;
+            margin-top: 15px;
+            min-width: 100px;
+        }
+
+        @media screen and (min-width: 500px) {
+            .file-input {
+                width: calc(100% - 115px);
             }
-            .timer-bar-wrapper .wrapper .success-text {
-                top: calc(50% + 42px);
-                font-size: 42px;
-                font-size: 4.2rem;
+
+            .submit-btn {
+                display: inline-block;
+                margin-top: 0;
+                margin-left: 10px;
+                border-radius: 5px;
             }
         }
 
-        .expand {
-            transition: height 0.35s 0.25s ease-in, border-radius 0.35s 0.35s ease-out;
-            border-radius: 50%;
+        .upload-container {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fff;
+            box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+            margin-top: 60px;
+            min-height: 400px;
+            position: relative;
+            padding: 20px;
+            border-radius: 5px;
         }
 
-        .up {
-            opacity: 1;
-            -webkit-animation: bounceInUp 0.6s;
-            animation: bounceInUp 0.6s;
+        .upload-header {
+            border-bottom: 1px solid #ececec;
         }
 
-        @-webkit-keyframes bounceInUp {
-            from, 60%, 75%, 90%, to {
-                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-            }
-            from {
-                transform: translate(-50%, calc(-50% + 100px));
-            }
-            35% {
-                opacity: 0;
-            }
-            70% {
-                opacity: 1;
-                transform: translate(-50%, calc(-50% - 40px));
-            }
-            80% {
-                transform: translate(-50%, calc(-50% - 35px));
-            }
-            to {
-                opacity: 1;
-            }
+        .upload-header h2 {
+            font-weight: 500;
         }
 
-        @keyframes bounceInUp {
-            from, 60%, 75%, 90%, to {
-                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-            }
-            from {
-                transform: translate(-50%, calc(-50% + 100px));
-            }
-            35% {
-                opacity: 0;
-            }
-            70% {
-                opacity: 1;
-                transform: translate(-50%, calc(-50% - 40px));
-            }
-            80% {
-                transform: translate(-50%, calc(-50% - 35px));
-            }
-            to {
-                opacity: 1;
-            }
+        .single-upload {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .upload-response {
+            overflow-x: hidden;
+            word-break: break-all;
+        }
+        button:hover{
+            background-color:#02d166 ;
         }
     </style>
 </head>
 <body>
-<div class="drop-zone">
-    <div class="timer-bar">
-        <div class="wrapper">
-            <i class='success-icon ion-ios-checkmark-empty'></i>
-            <p class='success-text'></p>
+<noscript>
+    <h2>Sorry! Your browser doesn't support Javascript</h2>
+</noscript>
+<div class="upload-container">
+    <div class="upload-header">
+        <h2>Add Study Plan</h2>
+    </div>
+    <div class="upload-content">
+        <div class="single-upload">
+            <h3>Upload Single File</h3>
+            <form id="singleUploadForm" name="singleUploadForm">
+                <label for ="schoolName"> School Name: </label>
+                <select id="schoolName" name="schoolName">
+                    <option value="kasit"> King Abdullah II School of Information Technology </option>
+                </select>
+                <br><br>
+                <label for ="departmentName"> Department Name: </label>
+                <select id="departmentName" name="departmentName">
+                    <option value="cs"> Computer Science </option>
+                    <option value="cis"> Computer Information System </option>
+                </select>
+                <br><br>
+                <label for ="year"> Year: </label>
+                <select id="year" name="year">
+                    <option value="2017"> 2017 </option>
+                    <option value="2018"> 2018 </option>
+                </select>
+                <br><br>
+                <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
+                <button type="submit" class="primary submit-btn">Submit</button>
+            </form>
+            <div class="upload-response">
+                <div id="singleFileUploadError"></div>
+                <div id="singleFileUploadSuccess"></div>
+            </div>
+        </div>
+        <div class="university-upload">
+            <h3>Upload University Plan </h3>
+            <form id="universityUploadForm" name="universityUploadForm">
+                <input id="universityFileUploadInput" type="file" name="files" class="file-input" required />
+                <button type="submit" class="primary submit-btn">Submit</button>
+            </form>
+            <div class="upload-response">
+                <div id="universityFileUploadError"></div>
+                <div id="universityFileUploadSuccess"></div>
+            </div>
         </div>
     </div>
-    <p class="timer-info">Drop your file here</p>
+    <br><br>
+    <button class="primary submit-btn">
+        <a href="http://localhost:8000/getTemplate" style="text-decoration-line: none; color: white">
+        Download CSV template</a>
+    </button>
 </div>
 <script>
-    $(function () {
+    'use strict';
 
-        var totalTime = 6, // seconds
-            percent = 0,
-            $sIcon = $('.success-icon'),
-            $sText = $('.success-text'),
-            $info = $('.timer-info'),
-            $bar = $('.timer-bar'),
-            $dropZone = $('.drop-zone'),
-            dropZone = $('.drop-zone')[0],
-            width = $dropZone.width(),
-            countdown,
-            countdownOver = false;
+    var singleUploadForm = document.querySelector('#singleUploadForm');
+    var singleFileUploadInput = document.querySelector('#singleFileUploadInput');
+    var singleFileUploadError = document.querySelector('#singleFileUploadError');
+    var singleFileUploadSuccess = document.querySelector('#singleFileUploadSuccess');
 
-        var startCountdown = function () {
-            $dropZone.css('border', 'none');
-            $dropZone.addClass('timer-bar-wrapper');
-            $info.text('0%');
-            countdown = setInterval(updateBar, 25);
-        };
+    var schoolName = $('#schoolName').val();
+    var depName = $('#departmentName').val();
+    var year = $('#year').val();
 
-        $(window).resize(function () {
-            if (countdownOver) {
-                width = $dropZone.width();
-                $dropZone.css('height', width);
+    var universityUploadForm = document.querySelector('#universityUploadForm');
+    var universityFileUploadInput = document.querySelector('#universityFileUploadInput');
+    var universityFileUploadError = document.querySelector('#universityFileUploadError');
+    var universityFileUploadSuccess = document.querySelector('#universityFileUploadSuccess');
+
+    var templateDownload = document.querySelector('templateDownload')
+
+    function uploadSingleFile(file) {
+        var formData = new FormData();
+        formData.append("file", file);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8000/uploadFile/"+schoolName+"/"+depName+"/"+year);
+
+        xhr.onload = function() {
+            console.log(xhr.responseText);
+            var response = JSON.parse(xhr.responseText);
+            if(xhr.status ==200) {
+                singleFileUploadError.style.display = "none";
+                singleFileUploadSuccess.innerHTML = "<p>File Uploaded Successfully.</p><p>DownloadUrl : <a href='" + response.fileDownloadUri + "' target='_blank'>" + response.fileDownloadUri + "</a></p>";
+                singleFileUploadSuccess.style.display = "block";
+            } else {
+                singleFileUploadSuccess.style.display = "none";
+                singleFileUploadError.innerHTML = (response && response.message) || "Some Error Occurred";
             }
-        });
+        }
 
-        var fileStatus = function () {
-            $sIcon
-                .addClass('up')
-                .delay(250)
-                .fadeTo(250, 1, 'swing');
-            $sText
-                .text('File uploaded')
-                .delay(500)
-                .fadeTo(350, 1, 'swing');
-            $dropZone.css('transition', 'none');
-        };
+        xhr.send(formData);
+    }
+    function uploadUniversityFiles(file) {
+        var formData = new FormData();
+        formData.append("file", file);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8000/uploadUniversity");
 
-        var triggerFinish = function () {
-            $dropZone
-                .css('height', width)
-                .addClass('expand');
-            $info.fadeTo(250, 0, 'swing');
-            setTimeout(fileStatus, 700);
-        };
-
-        var stopCountdown = function () {
-            clearInterval(countdown);
-            $('.timer-info').text('100%');
-            triggerFinish();
-        };
-
-        var updateBar = function () {
-            percent++;
-            // /40, because it's called every 25ms
-            // -> 25ms * 40 = 1 sec
-            var per = (100 * percent / totalTime) / 40;
-            $bar.css('width', per + '%');
-            $info
-                .css('left', per + '%')
-                .text(per.toFixed(1) + '%');
-            if (per >= 100) {
-                stopCountdown();
-                countdownOver = true;
+        xhr.onload = function() {
+            console.log(xhr.responseText);
+            var response = JSON.parse(xhr.responseText);
+            if(xhr.status == 200) {
+                universityFileUploadError.style.display = "none";
+                universityFileUploadSuccess.innerHTML = "<p>File Uploaded Successfully.</p><p>DownloadUrl : <a href='" + response.fileDownloadUri + "' target='_blank'>" + response.fileDownloadUri + "</a></p>";
+                universityFileUploadSuccess.style.display = "block";
+            } else {
+                universityFileUploadSuccess.style.display = "none";
+                universityFileUploadError.innerHTML = (response && response.message) || "Some Error Occurred";
             }
-        };
+        }
 
-        dropZone.addEventListener('dragover', function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-        });
-        dropZone.addEventListener('drop', function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-            setTimeout(startCountdown, 250)
-        });
-    });
+        xhr.send(formData);
+    }
+
+    singleUploadForm.addEventListener('submit', function(event){
+        var files = singleFileUploadInput.files;
+        if(files.length === 0) {
+            singleFileUploadError.innerHTML = "Please select a file";
+            singleFileUploadError.style.display = "block";
+        }
+        uploadSingleFile(files[0]);
+        event.preventDefault();
+    }, true);
+
+
+    universityUploadForm.addEventListener('submit', function(event){
+        var files = universityFileUploadInput.files;
+        if(files.length === 0) {
+            universityFileUploadError.innerHTML = "Please select a file";
+            universityFileUploadError.style.display = "block";
+        }
+        uploadUniversityFiles(files[0]);
+        event.preventDefault();
+    }, true);
+
 
 </script>
 </body>
