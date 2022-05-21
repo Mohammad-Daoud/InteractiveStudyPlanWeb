@@ -19,13 +19,21 @@
         <h2>Search for study plan</h2>
         <br>
         <label for="schoolName" ><strong>School Name:</strong> </label>
-        <input name="schoolName" type="text" placeholder="School Name" id="schoolName">
+        <select name="schoolName" type="text" placeholder="School Name" id="schoolName">
+            <option value="kasit"> King Abdullah II School of Information Technology </option>
+        </select>
         <br/> <br/>
         <label for="department"><strong>Department:</strong> </label>
-        <input name="department" type="text" placeholder="Department" id="department">
+        <select id="department" name="departmentName">
+            <option value="cs"> Computer Science </option>
+            <option value="cis"> Computer Information System </option>
+        </select>
         <br/> <br/>
         <label for="year"><strong>Year: </strong></label>
-        <input name="year" type="number" min="2000" placeholder="year (after 2000) " id="year">
+        <select id="year" name="year">
+            <option value="2017"> 2017 </option>
+            <option value="2018"> 2018 </option>
+        </select>
         <br/> <br/>
         <input type="submit" value="search"/>
         &ensp;<br>

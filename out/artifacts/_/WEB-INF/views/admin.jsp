@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="common/navigation.jsp"%>
 <%@include file="common/styleJsp.jsp"%>
+<%@include file="common/formStyle.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -163,25 +164,24 @@
     </div>
     <div class="upload-content">
         <div class="single-upload">
-            <h3>Upload Single File</h3>
             <form id="singleUploadForm" name="singleUploadForm">
-                <label for ="schoolName"> School Name: </label>
+                <label for ="schoolName" ><strong> School Name:</strong> </label>
                 <select id="schoolName" name="schoolName">
                     <option value="kasit"> King Abdullah II School of Information Technology </option>
                 </select>
-                <br>
-                <label for ="departmentName"> Department Name: </label>
+                <br><br>
+                <label for ="departmentName"><strong> Department Name:</strong> </label>
                 <select id="departmentName" name="departmentName">
                     <option value="cs"> Computer Science </option>
                     <option value="cis"> Computer Information System </option>
                 </select>
-                <br>
-                <label for ="year"> Year: </label>
+                <br><br>
+                <label for ="year"> <strong>Year:</strong> </label>
                 <select id="year" name="year">
                     <option value="2017"> 2017 </option>
                     <option value="2018"> 2018 </option>
                 </select>
-                <br>
+                <br><br>
                 <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
                 <button type="submit" class="primary submit-btn">Submit</button>
             </form>
