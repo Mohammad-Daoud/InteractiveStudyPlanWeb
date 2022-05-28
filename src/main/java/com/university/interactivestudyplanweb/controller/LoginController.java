@@ -24,6 +24,10 @@ public class LoginController {
     public String getShow() {
         return "/login";
     }
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String getDestroy() {
+        return "/login";
+    }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView getCred(ModelMap model,
