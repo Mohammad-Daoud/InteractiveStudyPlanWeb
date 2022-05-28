@@ -19,7 +19,7 @@
             </form>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/add-plan" >Add Study Plan</a>
+                    <a class="nav-link" href="/edit-plan" >Edit Study Plan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/adminSearch">Search Study Plan </a>

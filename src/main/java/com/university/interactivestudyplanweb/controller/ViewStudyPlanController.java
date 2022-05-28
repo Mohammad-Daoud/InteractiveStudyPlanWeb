@@ -11,7 +11,7 @@ public class ViewStudyPlanController {
     @Autowired
     private ViewStudyPlanService service;
 
-    @RequestMapping(value = "/add-plan", method = RequestMethod.GET)
+    @RequestMapping(value = "/edit-plan", method = RequestMethod.GET)
     public String viewPlan(){
         return "/admin";
     }

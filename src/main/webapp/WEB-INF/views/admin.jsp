@@ -160,7 +160,7 @@
 </noscript>
 <div class="upload-container">
     <div class="upload-header">
-        <h2>Add Study Plan</h2>
+        <h3>Edit Study Plan</h3>
     </div>
     <div class="upload-content">
         <div class="single-upload">
