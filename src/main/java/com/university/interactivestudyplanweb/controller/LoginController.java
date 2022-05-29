@@ -45,7 +45,7 @@ public class LoginController {
             model.put("lname", serviceInfo.get("lname"));
             switch (serviceInfo.get("userType").toString()) {
                 case "ADMIN":
-                    return new ModelAndView("admin");
+                    return new ModelAndView("/admin");
                 case "INSTRUCTOR":
                     return new ModelAndView("/inst");
                 case "STUDENT":
