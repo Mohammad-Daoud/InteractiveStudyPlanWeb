@@ -15,7 +15,7 @@ import java.util.Map;
 
 
 @Controller
-@SessionAttributes({"username","fname","lname"})
+@SessionAttributes({"username", "fname", "lname"})
 public class LoginController {
     @Autowired
     private LoginService service;
@@ -24,6 +24,7 @@ public class LoginController {
     public String getShow() {
         return "/login";
     }
+
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String getDestroy() {
         return "/login";
@@ -40,8 +41,8 @@ public class LoginController {
             return new ModelAndView("/login");
         } else {
             model.put("username", serviceInfo.get("username"));
-            model.put("fname",serviceInfo.get("fname"));
-            model.put("lname",serviceInfo.get("lname"));
+            model.put("fname", serviceInfo.get("fname"));
+            model.put("lname", serviceInfo.get("lname"));
             switch (serviceInfo.get("userType").toString()) {
                 case "ADMIN":
                     return new ModelAndView("admin");
@@ -53,7 +54,8 @@ public class LoginController {
                             + "&studentID=" + serviceInfo.get("studentID")
                             + "&schoolName=" + serviceInfo.get("schoolName")
                             + "&departmentName=" + serviceInfo.get("departmentName")
-                            + "&year=" + serviceInfo.get("year");
+                            + "&year=" + serviceInfo.get("year")
+                            + "&username=" + username;
                     return new ModelAndView("redirect:" + projectUrl);
             }
         }
