@@ -49,9 +49,8 @@ public class LoginController {
                 case "INSTRUCTOR":
                     return new ModelAndView("/inst");
                 case "STUDENT":
-                    String projectUrl = "http://localhost:3000/?fname=" + serviceInfo.get("fname")
-                            + "&lname=" + serviceInfo.get("lname")
-                            + "&studentID=" + serviceInfo.get("studentID")
+                    String projectUrl = "http://localhost:3000/?"
+                            + "studentID=" + serviceInfo.get("studentID")
                             + "&schoolName=" + serviceInfo.get("schoolName")
                             + "&departmentName=" + serviceInfo.get("departmentName")
                             + "&year=" + serviceInfo.get("year")
