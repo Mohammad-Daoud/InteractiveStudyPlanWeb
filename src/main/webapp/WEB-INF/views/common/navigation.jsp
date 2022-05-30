@@ -14,7 +14,7 @@
              position: fixed;
               width: 100%;
                z-index: 999;
-               height: 80px;
+               height: auto;
                 border-bottom: 5px solid rgb(255, 46, 46);
                  margin-bottom: 250px;
                  box-shadow: rgba(0, 0, 0, 0.035) 0px 2.8px 2.2px, rgba(0, 0, 0, 0.047) 0px 6.7px 5.3px, rgba(0, 0, 0, 0.06) 0px 12.5px 10px, rgba(0, 0, 0, 0.07) 0px 22.3px 17.9px, rgba(0, 0, 0, 0.086) 0px 41.8px 33.4px, rgba(0, 0, 0, 0.12) 0px 100px 80px;">
