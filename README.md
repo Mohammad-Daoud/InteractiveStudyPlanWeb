@@ -10,7 +10,7 @@ The main program that will run after running the
 You should have ***Maven***, and ***JDK 11*** .
 Fork the Project or Download the project as a ZIP file. 
 
-Recommended before run the project.
+**NOTE**: Recommended before running the project.
 ``` 
 mvn clean  
 ```
