@@ -65,14 +65,14 @@
         form{
             height: 600px;
             width: 400px;
-            background-color: rgba(255, 255, 255, 0.02);
+            background-color: rgba(0, 0, 0, 0.4);
             position: absolute;
             transform: translate(-50%,-50%);
             top: 50%;
             left: 63%;
             border-radius: 10px;
             backdrop-filter: blur(20px);
-            border: 2px solid rgba(255, 255, 255, 0.18);
+            border: 2.5px solid rgba(245, 245, 245, 0.35);
             box: 0 0 40px rgba(8,7,16,0.6);
             padding: 50px 35px;
         }
