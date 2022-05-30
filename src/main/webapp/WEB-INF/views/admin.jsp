@@ -22,23 +22,26 @@
         }
 
         body {
-            margin: 0;
-            padding: 0;
+
             font-weight: 400;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-size: 1rem;
             line-height: 1.58;
             color: #333;
-            background-color: #02d166;
+            background-color: rgb(238, 251, 238);
+            position: absolute;
+            height: 50%;
+            width: 100%;
+
         }
 
-        body:before {
+        body {
             height: 50%;
             width: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            background: #02d166;
+            background: rgb(238, 251, 238);
             content: "";
             z-index: 0;
         }
@@ -154,7 +157,8 @@
         }
     </style>
 </head>
-<body>
+<body style="font-size: 15px">
+<div style="margin-top: 150px">
 <noscript>
     <h2>Sorry! Your browser doesn't support Javascript</h2>
 </noscript>
@@ -207,6 +211,7 @@
         <a href="http://localhost:8000/getTemplate" style="text-decoration-line: none; color: white">
         Download CSV template</a>
     </button>
+</div>
 </div>
 <script>
     'use strict';

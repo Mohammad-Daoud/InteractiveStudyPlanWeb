@@ -1,20 +1,27 @@
 <style>
-@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-.form-white.input-group>.form-control:focus {
-    border-color: #fff;
-    box-shadow: inset 0 0 0 1px #fff;
+.listElement {
+    width: 135px;
+    height: 65px;
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    border: 1px rgb(238, 251, 238) solid ;
+    border-radius: 10px;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
+.listElement:hover{
+    border: 1px rgb(0, 237, 107) solid ;
+    background-color: #08730cb3;
+    border-radius: 10px;
 }
 
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link:focus {
+.list {
     display: flex;
-    justify-content: space-between;
-    color: rgba(255, 255, 255, 0.75);
+    background-color: #4CAF50;
+    height: 74px;
 }
 </style>

@@ -45,9 +45,8 @@ public class LoginController {
             model.put("lname", serviceInfo.get("lname"));
             switch (serviceInfo.get("userType").toString()) {
                 case "ADMIN":
-                    return new ModelAndView("/admin");
                 case "INSTRUCTOR":
-                    return new ModelAndView("/inst");
+                    return new ModelAndView("/admin");
                 case "STUDENT":
                     String projectUrl = "http://localhost:3000/?"
                             + "studentID=" + serviceInfo.get("studentID")

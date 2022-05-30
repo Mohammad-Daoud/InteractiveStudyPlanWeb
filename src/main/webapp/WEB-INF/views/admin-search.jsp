@@ -13,33 +13,34 @@
 <head>
     <title>Admin Page</title>
 </head>
-<body>
-<div class="search">
-    <form action="/search" method="POST">
-        <h2>Search for study plan</h2>
+<body style="background-color: rgb(238, 251, 238); font-size: 15px">
+<div class="search" style="background-color: rgb(238, 251, 238); ">
+    <form action="/search" method="POST" style=" margin-top: 150px">
+        <h2>Search A Study Plan</h2>
         <br>
-        <label for="schoolName" ><strong>School Name:</strong> </label>
+        <label for="schoolName"><strong>School Name:</strong> </label>
         <select name="schoolName" type="text" placeholder="School Name" id="schoolName">
-            <option value="kasit"> King Abdullah II School of Information Technology </option>
+            <option value="kasit"> King Abdullah II School of Information Technology</option>
         </select>
         <br/> <br/>
-        <label for="department"><strong>Department:</strong> </label>
-        <select id="department" name="departmentName">
-            <option value="cs"> Computer Science </option>
-            <option value="cis"> Computer Information System </option>
+        <label for="departmentName"><strong>Department:</strong> </label>
+        <select id="departmentName" name="departmentName">
+            <option value="cs"> Computer Science</option>
+            <option value="cis"> Computer Information System</option>
         </select>
         <br/> <br/>
+
         <label for="year"><strong>Year: </strong></label>
         <select id="year" name="year">
-            <option value="2017"> 2017 </option>
-            <option value="2018"> 2018 </option>
+            <option value="2017"> 2017</option>
+            <option value="2018"> 2018</option>
         </select>
         <br/> <br/>
-        <input type="submit" value="search"/>
+        <input id="search" name="search" type="submit" value="search"/>
         &ensp;<br>
-        <input type="reset" value="clear"/>
-
-
+    </form>
+    <form action="/downloadPlan" method="POST" style=" margin-top: 150px">
+        <input id="download" name="download" type="submit" value="Download Plan" style="background-color: rgb(255, 46, 46)" />
     </form>
 </div>
 </body>

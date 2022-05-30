@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@SessionAttributes("userType")
+@SessionAttributes({"userType","fname", "lname"})
 public class SearchController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class SearchController {
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String viewSearchPage() {
-        return "/inst";
+        return "/admin-search";
     }
 
     @RequestMapping(value = "/adminSearch", method = RequestMethod.GET)
@@ -29,9 +29,19 @@ public class SearchController {
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public ModelAndView method(@RequestParam String schoolName,
-                               @RequestParam String department,
+                               @RequestParam String departmentName,
+                               @RequestParam int year,
+                               ModelMap map) {
+        String projectUrl = "http://localhost:3000?schoolName=" + schoolName + "&departmentName=" + departmentName + "&year=" + year+
+                "&fname="+map.get("fname")+"&lname="+map.get("lname")+"&instructorID= INSTRUCTOR VIEW ";
+        return new ModelAndView("redirect:" + projectUrl);
+    }
+
+    @RequestMapping(value = "/downloadPlan", method = RequestMethod.POST)
+    public ModelAndView downloadPlan(@RequestParam String schoolName,
+                               @RequestParam String departmentName,
                                @RequestParam int year) {
-        String projectUrl = "http://localhost:3000?schoolName=" + schoolName + "&departmentName=" + department + "&year=" + year;
+        String projectUrl = "http://localhost:8000/downloadPlan?schoolName=" + schoolName + "&departmentName=" + departmentName + "&year=" + year;
         return new ModelAndView("redirect:" + projectUrl);
     }
 }

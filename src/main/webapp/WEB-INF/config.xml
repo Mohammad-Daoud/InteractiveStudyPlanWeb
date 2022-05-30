@@ -15,6 +15,6 @@
             <value>.jsp</value>
         </property>
     </bean>
-
     <mvc:annotation-driven />
+    <mvc:resources mapping="/resource/**" location="/WEB-INF/resource/image" cache-period="31556926"/>
 </beans>

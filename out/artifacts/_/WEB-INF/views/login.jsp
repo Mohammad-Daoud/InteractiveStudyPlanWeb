@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +26,7 @@
             box-sizing: border-box;
         }
         body{
-            background-color: #00A650;
+            background-color: rgb(233, 245, 233);
         }
         .background{
             width: 430px;
@@ -46,21 +47,23 @@
                     #382929,
                     #231F20
             );
-            left: -80px;
+            filter: blur(5px);
+            left: -400px;
             top: -80px;
         }
         .shape:last-child{
-            right: -30px;
             background: linear-gradient(
                     to right,
                     #FF0000,
                     #ED1C24
 
             );
+            filter: blur(5px);
             bottom: -80px;
+            right: -400px;
         }
         form{
-            height: 520px;
+            height: 600px;
             width: 400px;
             background-color: rgba(255,255,255,0.13);
             position: absolute;
@@ -144,13 +147,15 @@
     </style>
 </head>
 <body>
+    <div style="text-align: center;font-weight: 1000">
+    <img src="<c:url value="./../resource/image/logoUniversity.png"/>" alt="Logo" width="808px" height="950px"/>
+    </div>
 <div class="background">
     <div class="shape"></div>
     <div class="shape"></div>
 </div>
 <form action="/login" method="POST">
     <h3>Login</h3>
-
     <label for="username">Username</label>
     <input name ="username" type="text" placeholder="Username" id="username">
 
