@@ -116,7 +116,7 @@
             margin-top: 80px;
             width: 100%;
             background: linear-gradient(
-                    to left,
+                    to right,
                     black,
                     #45a049
             );
