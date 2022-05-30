@@ -39,9 +39,6 @@
         <input id="search" name="search" type="submit" value="search"/>
         &ensp;<br>
     </form>
-    <form action="/downloadPlan" method="POST" style=" margin-top: 150px">
-        <input id="download" name="download" type="submit" value="Download Plan" style="background-color: rgb(255, 46, 46)" />
-    </form>
 </div>
 </body>
 </html>

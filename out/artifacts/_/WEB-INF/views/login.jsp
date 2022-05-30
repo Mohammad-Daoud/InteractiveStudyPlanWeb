@@ -26,7 +26,7 @@
             box-sizing: border-box;
         }
         body{
-            background-color: rgb(233, 245, 233);
+            background-color: #45a049;
         }
         .background{
             width: 430px;
@@ -47,9 +47,9 @@
                     #382929,
                     #231F20
             );
-            filter: blur(5px);
-            left: -400px;
-            top: -80px;
+            /*filter: blur(2px);*/
+            right: 50px;
+            top: -110px;
         }
         .shape:last-child{
             background: linear-gradient(
@@ -58,27 +58,28 @@
                     #ED1C24
 
             );
-            filter: blur(5px);
-            bottom: -80px;
-            right: -400px;
+            /*filter: blur(2px);*/
+            bottom: -110px;
+            right: -300px;
         }
         form{
             height: 600px;
             width: 400px;
-            background-color: rgba(255,255,255,0.13);
+            background-color: rgba(255, 255, 255, 0.02);
             position: absolute;
             transform: translate(-50%,-50%);
             top: 50%;
-            left: 50%;
+            left: 63%;
             border-radius: 10px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.18);
             box: 0 0 40px rgba(8,7,16,0.6);
             padding: 50px 35px;
         }
         form *{
+            font-weight: 5000;
             font-family: 'Poppins',sans-serif;
-            color: #ffffff;
+            color: white;
             letter-spacing: 0.5px;
             outline: none;
             border: none;
@@ -88,6 +89,7 @@
             font-weight: 500;
             line-height: 42px;
             text-align: center;
+
         }
 
         label{
@@ -108,18 +110,33 @@
             font-weight: 300;
         }
         ::placeholder{
-            color: #e5e5e5;
+            color: white;
         }
         button{
-            margin-top: 50px;
+            margin-top: 80px;
             width: 100%;
-            background-color: #ffffff;
-            color: #080710;
+            background: linear-gradient(
+                    to left,
+                    black,
+                    #45a049
+            );
+            color: white;
+            border: 1px solid white;
             padding: 15px 0;
             font-size: 18px;
             font-weight: 600;
             border-radius: 5px;
             cursor: pointer;
+        }
+        button:hover{
+            background: linear-gradient(
+                    to right,
+                    #ED1C24,
+                    #45a049
+            );
+
+            color: white;
+            border: 1px solid white;
         }
         .social{
             margin-top: 30px;
@@ -130,12 +147,11 @@
             width: 150px;
             border-radius: 3px;
             padding: 5px 10px 10px 5px;
-            background-color: rgba(255,255,255,0.27);
-            color: #eaf0fb;
+            color: black;
             text-align: center;
         }
         .social div:hover{
-            background-color: rgba(255,255,255,0.47);
+            background-color: black;
         }
         .social .fb{
             margin-left: 25px;
@@ -147,15 +163,16 @@
     </style>
 </head>
 <body>
-    <div style="text-align: center;font-weight: 1000">
-    <img src="<c:url value="./../resource/image/logoUniversity.png"/>" alt="Logo" width="808px" height="950px"/>
+    <div style="text-align: left;font-weight: 99999">
+    <img src="<c:url value="./../resource/image/logoUniversity.png"/>" alt="Logo" width="600px" height="750px"
+    style="text-align: left;margin-top: 5%;margin-left: 9%"/>
     </div>
 <div class="background">
     <div class="shape"></div>
     <div class="shape"></div>
 </div>
 <form action="/login" method="POST">
-    <h3>Login</h3>
+    <h3><strong style="font-size: 60px;color: rgb(233, 245, 233)">Login</strong></h3>
     <label for="username">Username</label>
     <input name ="username" type="text" placeholder="Username" id="username">
 

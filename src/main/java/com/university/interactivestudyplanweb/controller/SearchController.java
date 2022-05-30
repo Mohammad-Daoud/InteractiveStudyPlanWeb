@@ -33,7 +33,7 @@ public class SearchController {
                                @RequestParam int year,
                                ModelMap map) {
         String projectUrl = "http://localhost:3000?schoolName=" + schoolName + "&departmentName=" + departmentName + "&year=" + year+
-                "&fname="+map.get("fname")+"&lname="+map.get("lname")+"&instructorID=   ADMIN/INSTRUCTOR VIEW ";
+                "&fname="+map.get("fname")+"&lname="+map.get("lname")+"&instructorID=ADMIN/INSTRUCTOR VIEW";
         return new ModelAndView("redirect:" + projectUrl);
     }
 
