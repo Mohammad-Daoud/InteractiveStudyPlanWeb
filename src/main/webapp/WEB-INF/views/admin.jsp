@@ -177,13 +177,11 @@
                 <label for ="departmentName"><strong> Department Name:</strong> </label>
                 <select id="departmentName" name="departmentName">
                     <option value="cs"> Computer Science </option>
-                    <option value="cis"> Computer Information System </option>
                 </select>
                 <br><br>
                 <label for ="year"> <strong>Year:</strong> </label>
                 <select id="year" name="year">
                     <option value="2017"> 2017 </option>
-                    <option value="2018"> 2018 </option>
                 </select>
                 <br><br>
                 <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
